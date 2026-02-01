@@ -1,0 +1,7 @@
+{
+  "cleanUrls": true,
+  "routes": [
+    { "src": "/", "dest": "/landing.html" },
+    { "src": "/app", "dest": "/index.html" }
+  ]
+}

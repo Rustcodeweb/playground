@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WebPlayground Editor - Live Code Editor | Write HTML, CSS, JavaScript</title>
+  
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Write and test HTML, CSS, and JavaScript code in real-time with WebPlayground editor. Features syntax highlighting, live preview, local storage, and export functionality. Free online code editor.">
+  <meta name="keywords" content="code editor, HTML editor, CSS editor, JavaScript editor, live preview, syntax highlighting, online IDE, web development, coding, programming">
+  <meta name="author" content="WebPlayground">
+  <meta name="robots" content="index, follow">
+  <meta name="language" content="English">
+  <meta name="revisit-after" content="7 days">
+  
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:title" content="WebPlayground Editor - Live Code Editor">
+  <meta property="og:description" content="Write and test HTML, CSS, and JavaScript code in real-time with syntax highlighting and live preview. Free online code editor.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://playground.rustcodeweb.com/index.html">
+  <meta property="og:image" content="https://playground.rustcodeweb.com/editor-og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:site_name" content="WebPlayground">
+  <meta property="og:locale" content="en_US">
+  
+  <!-- Twitter Card Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="WebPlayground Editor - Live Code Editor">
+  <meta name="twitter:description" content="Write and test HTML, CSS, and JavaScript code in real-time with syntax highlighting and live preview. Free online code editor.">
+  <meta name="twitter:image" content="https://playground.rustcodeweb.com/editor-twitter-image.jpg">
+  <meta name="twitter:creator" content="@webplayground">
+  <meta name="twitter:site" content="@webplayground">
+  
+  <!-- Additional SEO Meta Tags -->
+  <meta name="theme-color" content="#8b5cf6">
+  <meta name="msapplication-TileColor" content="#8b5cf6">
+  <meta name="application-name" content="WebPlayground Editor">
+  <meta name="apple-mobile-web-app-title" content="WebPlayground">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="mobile-web-app-capable" content="yes">
+  
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://playground.rustcodeweb.com/index.html">
+  
+  <!-- Favicon and App Icons -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%238b5cf6'/%3E%3Ctext x='50' y='50' font-family='monospace' font-size='40' fill='white' text-anchor='middle' dy='.3em'%3E%3C/t%3E%3C/svg%3E">
+  <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%238b5cf6'/%3E%3Ctext x='50' y='50' font-family='monospace' font-size='40' fill='white' text-anchor='middle' dy='.3em'%3E%3C/t%3E%3C/svg%3E">
+  
+  <!-- Preconnect to External Resources -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+  <link rel="preconnect" href="https://cpwebassets.codepen.io">
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/codemirror.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/theme/monokai.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/addon/hint/show-hint.min.css">
+  <link rel="stylesheet" href="./assets/css/styles.css?v=3">
+  
+  
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "WebPlayground Editor",
+    "description": "Live code editor with real-time preview, syntax highlighting, and powerful developer tools for HTML, CSS, and JavaScript",
+    "url": "https://playground.rustcodeweb.com/index.html",
+    "applicationCategory": "DeveloperApplication",
+    "operatingSystem": "Any",
+    "browserRequirements": "HTML5, CSS3, JavaScript",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "featureList": [
+      "Real-time code preview",
+      "Syntax highlighting",
+      "Code completion",
+      "Error checking",
+      "Local storage",
+      "Export functionality",
+      "Responsive design",
+      "Dark theme"
+    ],
+    "screenshot": "https://playground.rustcodeweb.com/editor-screenshot.jpg",
+    "author": {
+      "@type": "Organization",
+      "name": "WebPlayground"
+    }
+  }
+  </script>
+</head>
+<body>
+  <header class="header">
+    <div class="nav-container">
+      <!-- Logo and Mobile Menu Toggle -->
+      <div class="nav-brand">
+        <button class="mobile-menu-toggle" onclick="toggleMobileMenu()" aria-label="Toggle mobile menu">
+          <i class="fas fa-bars"></i>
+        </button>
+        <a href="landing.html" class="logo">
+          Web<span class="logo-accent">Playground</span>
+        </a>
+      </div>
+
+      <!-- Desktop Navigation -->
+      <nav class="nav-menu">
+        <div class="nav-center">
+          <div class="project-title">
+            <input type="text" id="projectTitle" placeholder="Untitled Project" value="My Awesome Project">
+          </div>
+        </div>
+        <div class="nav-actions">
+          <button class="btn btn-ghost" onclick="saveProject()" aria-label="Save project" title="Save">
+            <i class="fas fa-save"></i>
+          </button>
+          <button class="btn btn-ghost" onclick="newProject()" aria-label="New project" title="New">
+            <i class="fas fa-plus"></i>
+          </button>
+          <button class="btn btn-ghost" onclick="exportProject()" aria-label="Export project" title="Export">
+            <i class="fas fa-download"></i>
+          </button>
+          <button class="btn btn-ghost" onclick="importProject()" aria-label="Import project" title="Import">
+            <i class="fas fa-upload"></i>
+          </button>
+          <div class="divider-vertical"></div>
+          <button class="btn btn-ghost" onclick="toggleFullscreen()" aria-label="Toggle fullscreen" title="Fullscreen">
+            <i class="fas fa-expand"></i>
+          </button>
+          <button class="btn btn-ghost" onclick="toggleZenMode()" aria-label="Toggle zen mode" title="Zen Mode">
+            <i class="fas fa-eye-slash"></i>
+          </button>
+          <button class="btn btn-ghost" onclick="toggleSettings()" aria-label="Settings" title="Settings">
+            <i class="fas fa-cog"></i>
+          </button>
+          <button class="btn btn-primary btn-icon-only" onclick="shareProject()" aria-label="Share project" title="Share">
+            <i class="fas fa-share-alt"></i>
+          </button>
+        </div>
+      </nav>
+    </div>
+
+    <!-- Mobile Menu (Hidden by default) -->
+    <div class="mobile-menu" id="mobile-menu">
+      <div class="mobile-menu-header">
+        <div class="logo">
+          Web<span class="logo-accent">Playground</span>
+        </div>
+        <button class="mobile-menu-close" onclick="toggleMobileMenu()" aria-label="Close mobile menu">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      
+      <div class="mobile-menu-content">
+        <!-- Project Title in Mobile -->
+        <div class="mobile-project-title">
+          <input type="text" id="mobileProjectTitle" placeholder="Untitled Project" value="My Awesome Project">
+        </div>
+        
+        <!-- Mobile Actions -->
+        <div class="mobile-actions">
+          <button class="btn btn-secondary mobile-btn" onclick="saveProject(); toggleMobileMenu();">
+            <i class="fas fa-save"></i> Save
+          </button>
+          <button class="btn btn-secondary mobile-btn" onclick="newProject(); toggleMobileMenu();">
+            <i class="fas fa-plus"></i> New
+          </button>
+          <button class="btn btn-secondary mobile-btn" onclick="exportProject(); toggleMobileMenu();">
+            <i class="fas fa-download"></i> Export
+          </button>
+          <button class="btn btn-secondary mobile-btn" onclick="importProject(); toggleMobileMenu();">
+            <i class="fas fa-upload"></i> Import
+          </button>
+          <button class="btn btn-secondary mobile-btn" onclick="toggleFullscreen(); toggleMobileMenu();">
+            <i class="fas fa-expand"></i> Fullscreen
+          </button>
+          <button class="btn btn-secondary mobile-btn" onclick="toggleZenMode(); toggleMobileMenu();">
+            <i class="fas fa-eye-slash"></i> Zen Mode
+          </button>
+          <button class="btn btn-primary mobile-btn" onclick="shareProject(); toggleMobileMenu();">
+            <i class="fas fa-share"></i> Share
+          </button>
+          <button class="btn btn-secondary mobile-btn" onclick="toggleSettings(); toggleMobileMenu();">
+            <i class="fas fa-cog"></i> Settings
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay" id="mobile-menu-overlay" onclick="toggleMobileMenu()"></div>
+  </header>
+
+  <main class="main-container">
+    <div class="editor-layout">
+      <div class="left-panel">
+        <div class="tabs">
+          <div class="tab active" data-panel="html">
+            <i class="fab fa-html5"></i> <span>HTML</span>
+          </div>
+          <div class="tab" data-panel="css">
+            <i class="fab fa-css3-alt"></i> <span>CSS</span>
+          </div>
+          <div class="tab" data-panel="js">
+            <i class="fab fa-js"></i> <span>JS</span>
+          </div>
+          <div class="tab" data-panel="console">
+            <i class="fas fa-terminal"></i> <span>Console</span>
+          </div>
+        </div>
+        
+        <div class="editor-container">
+          <div class="editor-panel active" id="html-panel">
+            <textarea id="html-code"></textarea>
+          </div>
+          <div class="editor-panel" id="css-panel">
+            <textarea id="css-code"></textarea>
+          </div>
+          <div class="editor-panel" id="js-panel">
+            <textarea id="js-code"></textarea>
+          </div>
+          <div class="editor-panel" id="console-panel">
+            <div class="console-editor">
+              <div class="console-header">
+                <span>Console Output</span>
+                <button class="console-clear-btn" onclick="clearConsole()">
+                  <i class="fas fa-trash"></i>
+                </button>
+              </div>
+              <div class="console-output" id="console-output">
+                <div class="console-welcome">Console output will appear here...</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="resize-handle" id="resize-handle"></div>
+
+      <div class="right-panel">
+        <div class="preview-header">
+          <div class="preview-controls">
+            <button class="preview-btn active" onclick="setPreviewMode('desktop')">
+              <i class="fas fa-desktop"></i>
+            </button>
+            <button class="preview-btn" onclick="setPreviewMode('tablet')">
+              <i class="fas fa-tablet-alt"></i>
+            </button>
+            <button class="preview-btn" onclick="setPreviewMode('mobile')">
+              <i class="fas fa-mobile-alt"></i>
+            </button>
+          </div>
+          <div class="preview-actions">
+            <button onclick="refreshPreview()" title="Refresh Preview">
+              <i class="fas fa-sync"></i>
+            </button>
+            <button onclick="openInNewTab()" title="Open in New Tab">
+              <i class="fas fa-external-link-alt"></i>
+            </button>
+            <button onclick="clearConsole()" title="Clear Console">
+              <i class="fas fa-trash"></i>
+            </button>
+            <button class="zen-exit-preview-btn" onclick="toggleZenMode()" id="zen-exit-preview" aria-label="Exit zen mode">
+              <i class="fas fa-compress"></i>
+            </button>
+          </div>
+        </div>
+        <div class="preview-container">
+          <div class="preview-split">
+            <iframe id="preview" class="preview-frame"></iframe>
+            <!-- Console Panel Inside Preview Container -->
+            <div class="console-panel-bottom" id="console-panel-bottom">
+              <div class="console-header-bottom">
+                <span>Console</span>
+                <button class="console-clear-bottom" onclick="clearConsoleBottom()">
+                  <i class="fas fa-trash"></i>
+                </button>
+              </div>
+              <div class="console-output-bottom" id="console-output-bottom">
+                <div class="console-welcome">Console output will appear here...</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-left">
+      <span>Auto-saved</span>
+    </div>
+    <div class="footer-center">
+      <span id="char-count">0 characters</span>
+    </div>
+    <div class="footer-right">
+      <button class="console-toggle-footer" onclick="toggleConsolePanel()" aria-label="Toggle console panel">
+        <i class="fas fa-terminal"></i>
+      </button>
+    </div>
+  </footer>
+
+  <div class="settings-modal" id="settings-modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div class="header-info">
+          <i class="fas fa-sliders-h"></i>
+          <h3>Editor Settings</h3>
+        </div>
+        <button class="close-btn" onclick="toggleSettings()" aria-label="Close settings">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="settings-grid">
+          <div class="setting-card">
+            <div class="setting-info">
+              <i class="fas fa-palette"></i>
+              <div class="setting-text">
+                <label>Theme</label>
+                <span>Change editor appearance</span>
+              </div>
+            </div>
+            <select id="editor-theme">
+              <option value="monokai">Monokai</option>
+              <option value="default">Default</option>
+              <option value="dracula">Dracula</option>
+              <option value="material">Material</option>
+            </select>
+          </div>
+
+          <div class="setting-card">
+            <div class="setting-info">
+              <i class="fas fa-font"></i>
+              <div class="setting-text">
+                <label>Font Size</label>
+                <span id="font-size-value">14px</span>
+              </div>
+            </div>
+            <input type="range" id="font-size" min="12" max="24" value="14">
+          </div>
+
+          <div class="setting-card">
+            <div class="setting-info">
+              <i class="fas fa-indent"></i>
+              <div class="setting-text">
+                <label>Tab Size</label>
+                <span>Space indentation</span>
+              </div>
+            </div>
+            <select id="tab-size">
+              <option value="2">2 Spaces</option>
+              <option value="4">4 Spaces</option>
+              <option value="8">8 Spaces</option>
+            </select>
+          </div>
+
+          <div class="setting-card">
+            <div class="setting-info">
+              <i class="fas fa-columns"></i>
+              <div class="setting-text">
+                <label>Layout</label>
+                <span>Panel orientation</span>
+              </div>
+            </div>
+            <select id="layout-mode">
+              <option value="horizontal">Horizontal</option>
+              <option value="vertical">Vertical</option>
+            </select>
+          </div>
+
+          <div class="setting-card toggle-card">
+            <div class="setting-info">
+              <i class="fas fa-save"></i>
+              <div class="setting-text">
+                <label>Auto-save</label>
+                <span>Instant saving</span>
+              </div>
+            </div>
+            <label class="switch">
+              <input type="checkbox" id="auto-save" checked>
+              <span class="slider"></span>
+            </label>
+          </div>
+
+          <div class="setting-card toggle-card">
+            <div class="setting-info">
+              <i class="fas fa-bolt"></i>
+              <div class="setting-text">
+                <label>Live Preview</label>
+                <span>Real-time updates</span>
+              </div>
+            </div>
+            <label class="switch">
+              <input type="checkbox" id="live-preview" checked>
+              <span class="slider"></span>
+            </label>
+          </div>
+
+          <div class="setting-card toggle-card">
+            <div class="setting-info">
+              <i class="fas fa-align-left"></i>
+              <div class="setting-text">
+                <label>Word Wrap</label>
+                <span>Wrap long lines</span>
+              </div>
+            </div>
+            <label class="switch">
+              <input type="checkbox" id="word-wrap" checked>
+              <span class="slider"></span>
+            </label>
+          </div>
+
+          <div class="setting-card toggle-card">
+            <div class="setting-info">
+              <i class="fas fa-list-ol"></i>
+              <div class="setting-text">
+                <label>Line Numbers</label>
+                <span>Show/hide numbers</span>
+              </div>
+            </div>
+            <label class="switch">
+              <input type="checkbox" id="line-numbers" checked>
+              <span class="slider"></span>
+            </label>
+          </div>
+
+          <div class="setting-card toggle-card">
+            <div class="setting-info">
+              <i class="fas fa-magic"></i>
+              <div class="setting-text">
+                <label>Auto-complete</label>
+                <span>Smart suggestions</span>
+              </div>
+            </div>
+            <label class="switch">
+              <input type="checkbox" id="auto-complete">
+              <span class="slider"></span>
+            </label>
+          </div>
+        </div>
+
+        <div class="modal-actions-footer">
+          <button class="btn btn-primary" onclick="formatCode()">
+            <i class="fas fa-code"></i> Format All Code
+          </button>
+          <button class="btn btn-secondary" onclick="minifyCode()">
+            <i class="fas fa-compress-alt"></i> Minify Code
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function toggleMobileMenu() {
+      const menu = document.getElementById('mobile-menu');
+      const overlay = document.getElementById('mobile-menu-overlay');
+      if (menu && overlay) {
+        menu.classList.toggle('active');
+        overlay.classList.toggle('show');
+      }
+    }
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/codemirror.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/mode/xml/xml.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/mode/css/css.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/mode/javascript/javascript.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/addon/edit/closebrackets.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/addon/edit/matchbrackets.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/addon/fold/foldcode.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/addon/fold/brace-fold.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/addon/hint/show-hint.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/addon/hint/javascript-hint.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/addon/hint/css-hint.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/addon/hint/html-hint.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/addon/hint/xml-hint.min.js"></script>
+  <script src="./assets/js/script.js?v=3"></script>
+</body>
+</html>

@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebPlayground - Live Code Editor | Build & Test Code Online</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="WebPlayground is a modern live code editor with real-time preview, syntax highlighting, and powerful developer tools. Write HTML, CSS, and JavaScript code and see results instantly. Free online code editor.">
+    <meta name="keywords" content="live code editor, online code editor, HTML editor, CSS editor, JavaScript editor, real-time preview, syntax highlighting, web development, coding playground, online IDE">
+    <meta name="author" content="WebPlayground">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="English">
+    <meta name="revisit-after" content="7 days">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="WebPlayground - Live Code Editor">
+    <meta property="og:description" content="Modern live code editor with real-time preview, syntax highlighting, and powerful developer tools. Write code and see results instantly.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://playground.rustcodeweb.com">
+    <meta property="og:image" content="https://playground.rustcodeweb.com/og-image.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:site_name" content="WebPlayground">
+    <meta property="og:locale" content="en_US">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="WebPlayground - Live Code Editor">
+    <meta name="twitter:description" content="Modern live code editor with real-time preview, syntax highlighting, and powerful developer tools. Write code and see results instantly.">
+    <meta name="twitter:image" content="https://playground.rustcodeweb.com/twitter-image.jpg">
+    <meta name="twitter:creator" content="@webplayground">
+    <meta name="twitter:site" content="@webplayground">
+    
+    <!-- Additional SEO Meta Tags -->
+    <meta name="theme-color" content="#8b5cf6">
+    <meta name="msapplication-TileColor" content="#8b5cf6">
+    <meta name="application-name" content="WebPlayground">
+    <meta name="apple-mobile-web-app-title" content="WebPlayground">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="mobile-web-app-capable" content="yes">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://playground.rustcodeweb.com">
+    
+    <!-- Favicon and App Icons -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%238b5cf6'/%3E%3Ctext x='50' y='50' font-family='monospace' font-size='40' fill='white' text-anchor='middle' dy='.3em'%3E%3C/t%3E%3C/svg%3E">
+    <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%238b5cf6'/%3E%3Ctext x='50' y='50' font-family='monospace' font-size='40' fill='white' text-anchor='middle' dy='.3em'%3E%3C/t%3E%3C/svg%3E">
+    
+    <!-- Preconnect to External Resources -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="./assets/css/landing-styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "WebPlayground",
+        "description": "Modern live code editor with real-time preview, syntax highlighting, and powerful developer tools",
+        "url": "https://playground.rustcodeweb.com",
+        "applicationCategory": "DeveloperApplication",
+        "operatingSystem": "Any",
+        "browserRequirements": "HTML5, CSS3, JavaScript",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        },
+        "featureList": [
+            "Real-time code preview",
+            "Syntax highlighting",
+            "Local storage",
+            "Export/Import projects",
+            "Responsive design",
+            "Dark theme"
+        ],
+        "screenshot": "https://playground.rustcodeweb.com/screenshot.jpg",
+        "author": {
+            "@type": "Organization",
+            "name": "WebPlayground"
+        }
+    }
+    </script>
+</head>
+<body class="landing-page">
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container navbar-container">
+            <a href="#" class="logo">
+                Web<span class="logo-accent">Playground</span>
+            </a>
+            <div class="nav-links">
+                <a href="#features" class="nav-link">Features</a>
+                <a href="#demo" class="nav-link">Demo</a>
+                <a href="index.html" class="btn btn-primary">Try Editor <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <button class="mobile-menu-btn" aria-label="Toggle menu">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+        <!-- Mobile Menu -->
+        <div class="mobile-menu">
+            <a href="#features" class="mobile-nav-link">Features</a>
+            <a href="#demo" class="mobile-nav-link">Demo</a>
+            <a href="index.html" class="btn btn-primary mobile-btn">Try Editor</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="hero-bg"></div>
+        <div class="container hero-container">
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    Build & Launch <br>
+                    <span class="gradient-text">Faster Than Ever</span>
+                </h1>
+                <p class="hero-subtitle">
+                    Modern live code editor with real-time preview, syntax highlighting, and powerful developer tools. Write code and watch your creations come to life instantly.
+                </p>
+                <div class="hero-actions">
+                    <a href="index.html" class="btn btn-lg btn-primary">
+                        <i class="fas fa-rocket"></i> Start Coding Now
+                    </a>
+                    <a href="#demo" class="btn btn-lg btn-outline">
+                        <i class="fas fa-play"></i> Watch Demo
+                    </a>
+                </div>
+            </div>
+            
+            <div class="hero-visual">
+                <div class="code-editor-preview">
+                    <div class="editor-header">
+                        <div class="window-controls">
+                            <span class="control red"></span>
+                            <span class="control yellow"></span>
+                            <span class="control green"></span>
+                        </div>
+                        <div class="file-name">app.js</div>
+                    </div>
+                    <div class="editor-body">
+                        <div class="code-line"><span class="line-num">1</span><span class="kwd">const </span> <span class="var">editor</span> = <span class="kwd">new</span> <span class="cls">WebPlayground</span>({</div>
+                        <div class="code-line"><span class="line-num">2</span>  <span class="prop">theme</span>: <span class="str">'dracula'</span>,</div>
+                        <div class="code-line"><span class="line-num">3</span>  <span class="prop">autoSave</span>: <span class="bool">true</span>,</div>
+                        <div class="code-line"><span class="line-num">4</span>  <span class="prop">plugins</span>: [<span class="str">'emmet'</span>, <span class="str">'prettier'</span>]</div>
+                        <div class="code-line"><span class="line-num">5</span>});</div>
+                        <div class="code-line"><span class="line-num">6</span></div>
+                        <div class="code-line"><span class="line-num">7</span><span class="cmt">// Initialize real-time preview</span></div>
+                        <div class="code-line"><span class="line-num">8</span><span class="var">editor</span>.<span class="func">on</span>(<span class="str">'start'</span>, () => {</div>
+                        <div class="code-line"><span class="line-num">9</span>  <span class="func">console</span>.<span class="func">log</span>(<span class="str">'Ready to build!'</span>);</div>
+                        <div class="code-line"><span class="line-num">10</span>});</div>
+                    </div>
+                </div>
+                <div class="glow-effect"></div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Everything You Need</h2>
+                <p class="section-subtitle">Powerful features that help you code faster and more efficiently.</p>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon-wrapper">
+                        <i class="fas fa-bolt feature-icon"></i>
+                    </div>
+                    <h3 class="feature-title">Client-Side Execution</h3>
+                    <p class="feature-description">
+                        Run your code entirely in the browser. No server setup required - just open and code.
+                    </p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon-wrapper">
+                        <i class="fas fa-eye feature-icon"></i>
+                    </div>
+                    <h3 class="feature-title">Live Preview</h3>
+                    <p class="feature-description">
+                        See your changes instantly as you type with our real-time rendering engine.
+                    </p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon-wrapper">
+                        <i class="fas fa-save feature-icon"></i>
+                    </div>
+                    <h3 class="feature-title">Local Persistence</h3>
+                    <p class="feature-description">
+                        Never lose your work. Your code is automatically saved to your browser's local storage.
+                    </p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon-wrapper">
+                        <i class="fas fa-file-export feature-icon"></i>
+                    </div>
+                    <h3 class="feature-title">Project Management</h3>
+                    <p class="feature-description">
+                        Easily export your work as JSON or import existing projects to pick up where you left off.
+                    </p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon-wrapper">
+                        <i class="fas fa-terminal feature-icon"></i>
+                    </div>
+                    <h3 class="feature-title">Integrated Console</h3>
+                    <p class="feature-description">
+                        Debug JavaScript like a pro with the built-in console that captures logs and errors.
+                    </p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon-wrapper">
+                        <i class="fas fa-sliders-h feature-icon"></i>
+                    </div>
+                    <h3 class="feature-title">Customizable Interface</h3>
+                    <p class="feature-description">
+                        Personalize your experience with themes, font resizing, and adjustable layout modes.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Demo Section -->
+    <section id="demo" class="demo">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Experience the Power</h2>
+                <p class="section-subtitle">Try the editor right now. No setup required. It's just you and your code.</p>
+            </div>
+            
+            <div class="demo-showcase">
+                <div class="browser-mockup">
+                    <div class="browser-header">
+                        <div class="browser-controls">
+                            <span class="control red"></span>
+                            <span class="control yellow"></span>
+                            <span class="control green"></span>
+                        </div>
+                        <div class="browser-address-bar">
+                            <i class="fas fa-lock"></i>
+                            <span>secure.webplayground.io/demo</span>
+                        </div>
+                    </div>
+                    <div class="browser-content">
+                        <iframe src="index.html" title="WebPlayground Editor Demo"></iframe>
+                    </div>
+                </div>
+                <div class="demo-background-glow"></div>
+            </div>
+
+            <div class="demo-cta">
+                <a href="index.html" class="btn btn-primary btn-lg">
+                    <i class="fas fa-rocket"></i> Launch Full Editor
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="faq">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Frequently Asked Questions</h2>
+                <p class="section-subtitle">Everything you need to know about WebPlayground.</p>
+            </div>
+            
+            <div class="accordion">
+                <div class="accordion-item">
+                    <button class="accordion-header" aria-expanded="false">
+                        <span class="accordion-title">Is WebPlayground free to use?</span>
+                        <i class="fas fa-chevron-down accordion-icon"></i>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="accordion-body">
+                            Yes, WebPlayground is completely free to use for personal projects. We believe in accessible tools for everyone. We may introduce premium features for teams in the future, but the core editor will always remain free.
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="accordion-item">
+                    <button class="accordion-header" aria-expanded="false">
+                        <span class="accordion-title">Does it work offline?</span>
+                        <i class="fas fa-chevron-down accordion-icon"></i>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="accordion-body">
+                            Yes! WebPlayground uses modern PWA (Progressive Web App) technology. Once loaded, you can continue coding even without an internet connection. Your changes are saved locally to your browser.
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="accordion-item">
+                    <button class="accordion-header" aria-expanded="false">
+                        <span class="accordion-title">Can I export my projects?</span>
+                        <i class="fas fa-chevron-down accordion-icon"></i>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="accordion-body">
+                            Absolutely. You can export your projects as a JSON file to save them, or copy the HTML/CSS/JS code directly to use in your own files. We make it easy to take your work with you.
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="accordion-item">
+                    <button class="accordion-header" aria-expanded="false">
+                        <span class="accordion-title">What libraries are supported?</span>
+                        <i class="fas fa-chevron-down accordion-icon"></i>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="accordion-body">
+                            WebPlayground supports standard HTML5, CSS3, and ES6+ JavaScript. You can also import any external CDN libraries (like React, Vue, Bootstrap, Tailwind, etc.) simply by adding the &lt;script&gt; or &lt;link&gt; tags to your HTML.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <button class="accordion-header" aria-expanded="false">
+                        <span class="accordion-title">Is my code private?</span>
+                        <i class="fas fa-chevron-down accordion-icon"></i>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="accordion-body">
+                            Yes. All code processing happens right in your browser. We don't store your code on our servers unless you explicitly choose to share it (feature coming soon). Your work remains yours.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-container">
+            <div class="footer-brand">
+                <a href="#" class="logo">
+                    Web<span class="logo-accent">Playground</span>
+                </a>
+                <p class="footer-desc">
+                    The ultimate live code editor for developers who crave speed, simplicity, and power in their workflow.
+                </p>
+                <div class="social-links">
+                    <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-discord"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-column">
+                <h4>Product</h4>
+                <a href="#">Features</a>
+                <a href="#">Pricing</a>
+                <a href="#">Changelog</a>
+                <a href="#">Roadmap</a>
+            </div>
+            
+            <div class="footer-column">
+                <h4>Resources</h4>
+                <a href="#">Documentation</a>
+                <a href="#">Tutorials</a>
+                <a href="#">Community</a>
+                <a href="#">Blog</a>
+            </div>
+            
+            <div class="footer-column newsletter-column">
+                <h4>Stay Updated</h4>
+                <p class="newsletter-desc">Get the latest updates and tips.</p>
+                <form class="newsletter-form" onsubmit="event.preventDefault();">
+                    <div class="input-group">
+                        <input type="email" placeholder="Enter your email" required>
+                        <button type="submit" class="btn-icon"><i class="fas fa-arrow-right"></i></button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <div class="container">
+                <p>&copy; 2024 WebPlayground. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileBtn = document.querySelector('.mobile-menu-btn');
+        const mobileMenu = document.querySelector('.mobile-menu');
+        
+        if (mobileBtn && mobileMenu) {
+            mobileBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('active');
+                const icon = mobileBtn.querySelector('i');
+                if (mobileMenu.classList.contains('active')) {
+                    icon.classList.remove('fa-bars');
+                    icon.classList.add('fa-times');
+                } else {
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                }
+            });
+        }
+
+        // Smooth Scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                    // Close mobile menu if open
+                    if (mobileMenu && mobileMenu.classList.contains('active')) {
+                        mobileBtn.click();
+                    }
+                }
+            });
+        });
+        
+        // Navbar Scroll Effect
+        const navbar = document.querySelector('.navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // FAQ Accordion
+        const accordionHeaders = document.querySelectorAll('.accordion-header');
+        
+        accordionHeaders.forEach(header => {
+            header.addEventListener('click', () => {
+                const accordionItem = header.parentElement;
+                const accordionContent = header.nextElementSibling;
+                const isActive = accordionItem.classList.contains('active');
+                
+                // Close all other accordion items
+                document.querySelectorAll('.accordion-item').forEach(item => {
+                    item.classList.remove('active');
+                    item.querySelector('.accordion-header').setAttribute('aria-expanded', 'false');
+                    item.querySelector('.accordion-content').style.maxHeight = null;
+                });
+                
+                // Toggle current accordion item
+                if (!isActive) {
+                    accordionItem.classList.add('active');
+                    header.setAttribute('aria-expanded', 'true');
+                    accordionContent.style.maxHeight = accordionContent.scrollHeight + "px";
+                }
+            });
+        });
+    </script>
+</body>
+</html>
